@@ -1,78 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ramonito Wong | Digital Portfolio</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: #333;
-      background: #0000;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramonito Wong | Digital Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: #f4f7fa;
+  }
+  .wrapper {
+    display: flex;
+    min-height: 100vh;
+  }
+  aside {
+    background: #005b96;
+    color: white;
+    width: 250px;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  aside img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    margin-bottom: 1rem;
+  }
+  aside h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  aside p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+  }
+  aside a {
+    color: #cce6ff;
+    text-decoration: none;
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  main {
+    flex: 1;
+    padding: 2rem;
+  }
+  section {
+    background: white;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  section h2 {
+    margin-top: 0;
+    color: #005b96;
+    border-bottom: 2px solid #cce6ff;
+    padding-bottom: 0.3rem;
+  }
+  ul {
+    padding-left: 1.2rem;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
     }
-    header {
-      background: #32c456;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
+    aside {
+      width: 100%;
     }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #fff;
-      margin-bottom: 1rem;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      margin-top: 0;
-    }
-    ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
-    a {
-      color: #004080;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
+<div class="wrapper">
+  <aside>
     <img src="Resume Photo.jpg" alt="Profile photo">
     <h1>Ramonito Wong</h1>
     <p>Robotics System Engineering</p>
-    <p><a href="mailto:ramonito155@gmail.com">ramonito155@gmail.com</a> | 
-       <a href="https://www.linkedin.com/in/ramonito-jhon-pines-wong/">LinkedIn</a></p>
-  </header>
-
-  <div class="container">
+    <a href="mailto:ramonito155@gmail.com">ramonito155@gmail.com</a>
+    <a href="https://www.linkedin.com/in/ramonito-jhon-pines-wong/">LinkedIn</a>
+  </aside>
+  <main>
     <section>
       <h2>Profile</h2>
       <p>Electrical Technician with about a year of hands-on experience in robotics and preventive maintenance, ready to transition into a Robotics Engineer role. Proficient in operating advanced robotic systems and performing essential maintenance on complex machinery. Solid foundation in circuit and robotics design, strong problem-solving skills, and effective communication. Passionate about innovating robotic functionalities and contributing to team success.</p>
     </section>
-
     <section>
       <h2>Experience</h2>
       <h3>Singapore Armed Forces - Electrical Technician (Oct 2023 - July 2024)</h3>
@@ -91,12 +113,10 @@
         <li>Invited and taught shoppers how to fly drones</li>
       </ul>
     </section>
-
     <section>
       <h2>Education</h2>
       <p><strong>Ngee Ann Polytechnic</strong> - Diploma in Aerospace Engineering (April 2019 - May 2022)</p>
     </section>
-
     <section>
       <h2>Skills</h2>
       <ul>
@@ -111,15 +131,14 @@
         <li>Aerospace Engineering</li>
       </ul>
     </section>
-
     <section>
       <h2>Languages</h2>
       <p>English</p>
     </section>
-  </div>
-
-  <footer>
-    &copy; 2025 Ramonito Wong | Digital Portfolio
-  </footer>
+  </main>
+</div>
+<footer>
+  &copy; 2025 Ramonito Wong | Digital Portfolio
+</footer>
 </body>
 </html>
