@@ -13,7 +13,7 @@ You can view my portfolio live here:
 ## 📂 Project Structure
 This repository contains:
 - `index.html` – Main HTML file for the portfolio
-- `Resume Photo.jpg` – Profile photo (replace with your actual photo)
+- `Resume Photo.jpg` – Profile photo 
 - `README.md` – Project overview and instructions
 
 ## 🛠️ Built With
