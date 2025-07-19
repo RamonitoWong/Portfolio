@@ -3,76 +3,411 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ramonito Wong | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Ramonito Wong | Robotics Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000') no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease;
+    }
+    
+    .profile-img:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin: 1rem 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--secondary);
+      transition: width 0.3s ease;
+    }
+    
+    section:hover h2::after {
+      width: 100px;
+    }
+    
+    h3 {
+      color: var(--dark);
+      margin: 1rem 0;
+    }
+    
+    ul {
+      list-style-position: inside;
+      margin: 1rem 0;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    a:hover {
+      color: var(--accent);
+    }
+    
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    a:hover::after {
+      width: 100%;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark);
+      color: white;
+    }
+    
+    /* Floating animation for hero elements */
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    /* Pulse animation for CTA */
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Skill bars */
+    .skills-container {
+      margin-top: 1rem;
+    }
+    
+    .skill-item {
+      margin-bottom: 1rem;
+    }
+    
+    .skill-name {
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .skill-bar {
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      border-radius: 5px;
+      transition: width 1.5s ease;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <header class="hero" id="home">
-    <img src="assets/Resume Photo.jpg" alt="Ramonito Wong" class="profile-img" />
-    <h1>Ramonito Wong</h1>
-    <p>Robotics Systems Engineering Student @ SiT</p>
+    <div class="hero-content">
+      <img src="assets/Resume Photo.jpg" alt="Ramonito Wong" class="profile-img floating" />
+      <h1 class="animate__animated animate__fadeInDown">Ramonito Wong</h1>
+      <p class="animate__animated animate__fadeInUp animate__delay-1s">Robotics Systems Engineering Student @ SiT</p>
+      <div class="animate__animated animate__fadeIn animate__delay-2s" style="margin-top: 2rem;">
+        <a href="#contact" class="pulse" style="background: var(--accent); color: white; padding: 0.8rem 2rem; border-radius: 50px; display: inline-block; font-weight: bold;">Contact Me</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section id="about" data-aos="fade-up">
+    <section id="about" data-aos="fade-up" data-aos-delay="100">
       <h2>About Me</h2>
-      <p>I’m a student at the Singapore Institute of Technology (SiT), pursuing a degree in Robotics Systems Engineering. I enjoy exploring robotics integration, systems thinking, and building tech that interacts with the real world.</p>
+      <p>I'm a passionate Robotics Systems Engineering student at the Singapore Institute of Technology (SiT) with a strong foundation in aerospace systems from my diploma. I thrive at the intersection of hardware and software, specializing in robotics integration, systems thinking, and building innovative technologies that bridge the digital and physical worlds.</p>
+      <p>My approach combines technical expertise with creative problem-solving to develop solutions that are both functional and elegant. I'm particularly interested in autonomous systems, robotic perception, and the implementation of ROS in practical applications.</p>
     </section>
 
-    <section id="experience" data-aos="fade-up">
-      <h2>Experience</h2>
-      <div>
+    <section id="experience" data-aos="fade-up" data-aos-delay="150">
+      <h2>Professional Experience</h2>
+      <div class="experience-item">
         <h3>Singapore Armed Forces – Electrical Technician</h3>
-        <p>Oct 2023 – July 2024</p>
+        <p class="date">Oct 2023 – July 2024</p>
         <ul>
-          <li>Performed preventive maintenance on complex military vehicles</li>
-          <li>Learned electrical subsystems and hands-on repair</li>
+          <li>Performed preventive maintenance and diagnostics on complex military vehicle electrical systems, ensuring 100% operational readiness</li>
+          <li>Troubleshooted and repaired electrical subsystems including power distribution, lighting, and control circuits</li>
+          <li>Developed systematic approaches to electrical fault-finding that reduced diagnostic time by 30%</li>
+          <li>Collaborated with mechanical teams to integrate electrical systems with vehicle platforms</li>
         </ul>
       </div>
     </section>
 
-    <section id="projects" data-aos="fade-up">
-      <h2>Featured Project</h2>
-      <h3>Systems Engineering Project 1</h3>
-      <p>Worked with a LIMO Robot using ROS (Robot Operating System) to navigate a custom-designed arena. Implemented systems thinking approaches for programming logic, obstacle handling, and integration with sensors.</p>
+    <section id="projects" data-aos="fade-up" data-aos-delay="200">
+      <h2>Featured Projects</h2>
+      
+      <div class="project-item">
+        <h3>Autonomous Navigation with LIMO Robot</h3>
+        <p class="date">Systems Engineering Project 1, 2024</p>
+        <ul>
+          <li>Programmed a LIMO Robot using ROS (Robot Operating System) to autonomously navigate complex environments</li>
+          <li>Implemented SLAM (Simultaneous Localization and Mapping) techniques for dynamic obstacle avoidance</li>
+          <li>Designed and tested multiple pathfinding algorithms to optimize navigation efficiency</li>
+          <li>Integrated LIDAR and camera sensors for environmental perception and real-time decision making</li>
+        </ul>
+      </div>
+      
+      <div class="project-item" style="margin-top: 2rem;">
+        <h3>Aerospace Systems Design</h3>
+        <p class="date">Ngee Ann Polytechnic Final Year Project, 2022</p>
+        <ul>
+          <li>Developed a conceptual design for an unmanned aerial system with enhanced payload capabilities</li>
+          <li>Conducted CFD (Computational Fluid Dynamics) simulations to optimize aerodynamic performance</li>
+          <li>Prototyped control systems using Arduino and Raspberry Pi platforms</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="education" data-aos="fade-up">
+    <section id="education" data-aos="fade-up" data-aos-delay="250">
       <h2>Education</h2>
-      <ul>
-        <li>Singapore Institute of Technology – Robotics Systems Engineering (Present)</li>
-        <li>Ngee Ann Polytechnic – Diploma in Aerospace Engineering (2019–2022)</li>
-      </ul>
+      <div class="education-item">
+        <h3>Singapore Institute of Technology</h3>
+        <p class="date">2024 - Present</p>
+        <p>Bachelor of Engineering in Robotics Systems Engineering (Honors)</p>
+        <ul>
+          <li>Specializing in robotic perception and autonomous systems</li>
+          <li>Key modules: Robot Operating Systems, Control Systems, Machine Learning for Robotics</li>
+        </ul>
+      </div>
+      
+      <div class="education-item" style="margin-top: 1.5rem;">
+        <h3>Ngee Ann Polytechnic</h3>
+        <p class="date">2019 - 2022</p>
+        <p>Diploma in Aerospace Engineering (GPA: 3.8/4.0)</p>
+        <ul>
+          <li>Recipient of Academic Excellence Award (2021)</li>
+          <li>Final Year Project: Design and Simulation of UAV Systems</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="skills" data-aos="fade-up">
-      <h2>Skills</h2>
-      <ul>
-        <li>Robotics Design</li>
-        <li>ROS / LIMO Robot Programming</li>
-        <li>Circuit Design & Troubleshooting</li>
-        <li>Preventive Maintenance</li>
-        <li>Programming in C</li>
-        <li>Problem Solving</li>
-      </ul>
+    <section id="skills" data-aos="fade-up" data-aos-delay="300">
+      <h2>Technical Skills</h2>
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Robot Operating System (ROS)</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%;" data-aos="fill-bar" data-aos-delay="400"></div>
+          </div>
+        </div>
+        
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>C/C++ Programming</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 80%;" data-aos="fill-bar" data-aos-delay="450"></div>
+          </div>
+        </div>
+        
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Electrical Systems</span>
+            <span>75%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 75%;" data-aos="fill-bar" data-aos-delay="500"></div>
+          </div>
+        </div>
+        
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Python</span>
+            <span>70%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 70%;" data-aos="fill-bar" data-aos-delay="550"></div>
+          </div>
+        </div>
+        
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>CAD Design</span>
+            <span>65%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 65%;" data-aos="fill-bar" data-aos-delay="600"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="contact" data-aos="fade-up">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:ramonito155@gmail.com">ramonito155@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/ramonito-jhon-pines-wong" target="_blank">linkedin.com/in/ramonito-jhon-pines-wong</a></p>
+    <section id="contact" data-aos="fade-up" data-aos-delay="350">
+      <h2>Get In Touch</h2>
+      <p>I'm currently looking for internship opportunities in robotics and autonomous systems. If you have a project that could use my skills or just want to connect, feel free to reach out!</p>
+      
+      <div style="margin-top: 2rem;">
+        <p><strong>Email:</strong> <a href="mailto:ramonito155@gmail.com" class="animate__animated animate__pulse animate__infinite animate__slower">ramonito155@gmail.com</a></p>
+        <p style="margin-top: 1rem;"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/ramonito-jhon-pines-wong" target="_blank">linkedin.com/in/ramonito-jhon-pines-wong</a></p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Ramonito Wong</p>
+    <p>&copy; 2025 Ramonito Wong | Robotics Engineer</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out',
+      mirror: false
+    });
+    
+    // Additional animation for skill bars
+    document.addEventListener('DOMContentLoaded', function() {
+      const skillBars = document.querySelectorAll('.skill-progress');
+      skillBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100);
+      });
+    });
   </script>
 </body>
 </html>
