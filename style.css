@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -6,6 +7,12 @@ body {
   line-height: 1.6;
 }
 
+a {
+  color: #66ccff;
+  text-decoration: none;
+}
+
+/* ===== Header Styles ===== */
 header.hero {
   text-align: center;
   padding: 3rem 1rem;
@@ -19,8 +26,14 @@ header.hero {
   border: 3px solid #66ccff;
   margin-bottom: 1rem;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Main Content Styles ===== */
 main {
   max-width: 800px;
   margin: auto;
@@ -28,30 +41,152 @@ main {
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== Typography Styles ===== */
+h1, h2, h3 {
+  color: #66ccff;
 }
 
 h2 {
-  color: #66ccff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
   border-bottom: 1px solid #333;
-  padding-bottom: 0.3rem;
 }
 
-ul {
-  list-style: square;
-  padding-left: 1.5rem;
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #66ccff;
+  transition: width 0.3s ease;
 }
 
-a {
+section:hover h2::after {
+  width: 80px;
+}
+
+/* ===== Experience Section Styles ===== */
+.experience-item {
+  position: relative;
+  background: #1e1e1e;
+  padding: 1.8rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  border-left: 3px solid #66ccff;
+}
+
+.experience-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  background: #252525;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.position {
+  color: #ccc;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+  display: block;
+  font-style: italic;
+}
+
+.date {
+  color: #999;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.skills-tags {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: rgba(102, 204, 255, 0.15);
   color: #66ccff;
-  text-decoration: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(102, 204, 255, 0.3);
+  transition: all 0.2s ease;
 }
 
+.skill-tag:hover {
+  background: rgba(102, 204, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* ===== List Styles ===== */
+ul {
+  list-style: none;
+  padding-left: 0;
+  color: #ddd;
+}
+
+li {
+  margin-bottom: 0.7rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #66ccff;
+}
+
+/* ===== Footer Styles ===== */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   font-size: 0.85rem;
   background: #1e1e1e;
   color: #aaa;
+  margin-top: 3rem;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .date {
+    margin-top: 0.3rem;
+  }
+  
+  main {
+    padding: 1.5rem;
+  }
 }
