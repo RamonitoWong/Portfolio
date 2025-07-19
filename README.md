@@ -8,7 +8,7 @@ I’m passionate about designing and operating robotic systems, circuit troubles
 
 ## 🖥️ Live Website
 You can view my portfolio live here:  
-➡️ **[ramonito155.github.io/portfolio](https://ramonito155.github.io/portfolio)**
+➡️ **[https://ramonito155.github.io/portfolio](https://ramonitowong.github.io/Portfolio/)**
 
 ## 📂 Project Structure
 This repository contains:
