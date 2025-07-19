@@ -1,151 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramonito Wong | Digital Portfolio</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #121212;
-    color: #e0e0e0;
-  }
-  .wrapper {
-    display: flex;
-    min-height: 100vh;
-  }
-  aside {
-    background: #1f1f1f;
-    width: 250px;
-    padding: 2rem 1rem;
-    text-align: center;
-    border-right: 1px solid #333;
-  }
-  aside img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #555;
-    margin-bottom: 1rem;
-  }
-  aside h1 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-  }
-  aside p {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
-  }
-  aside a {
-    color: #66ccff;
-    text-decoration: none;
-    display: block;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-  }
-  main {
-    flex: 1;
-    padding: 2rem;
-  }
-  section {
-    background: #1e1e1e;
-    margin-bottom: 1.5rem;
-    padding: 1.2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  }
-  section h2 {
-    margin-top: 0;
-    color: #66ccff;
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.3rem;
-  }
-  h3 {
-    color: #aadffd;
-  }
-  ul {
-    padding-left: 1.2rem;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.8rem;
-    color: #777;
-  }
-  @media (max-width: 768px) {
-    .wrapper {
-      flex-direction: column;
-    }
-    aside {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid #333;
-    }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramonito Wong | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
-<div class="wrapper">
-  <aside>
-    <img src="Resume Photo.jpg" alt="Profile photo">
+
+  <header class="hero" id="home">
+    <img src="assets/Resume Photo.jpg" alt="Ramonito Wong" class="profile-img" />
     <h1>Ramonito Wong</h1>
-    <p>Robotics System Engineering</p>
-    <a href="mailto:ramonito155@gmail.com">ramonito155@gmail.com</a>
-    <a href="https://www.linkedin.com/in/ramonito-jhon-pines-wong/">LinkedIn</a>
-  </aside>
+    <p>Robotics Systems Engineering Student @ SiT</p>
+  </header>
+
   <main>
-    <section>
-      <h2>Profile</h2>
-      <p>Currently a student in Singapore Institute of Technology (SiT), pursuing a degree in Robotics Systems Engineering. Passionate about robotics design, automation, and cutting-edge technology and too enjoy exploring how robotic systems can be implemented to tackle real-world challenges. With hands-on experience from internships and projects, I’m eager to continue building practical skills in robotics integration, circuit design, and programming to prepare for a career as a Robotics Engineer.</p>
+    <section id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>I’m a student at the Singapore Institute of Technology (SiT), pursuing a degree in Robotics Systems Engineering. I enjoy exploring robotics integration, systems thinking, and building tech that interacts with the real world.</p>
     </section>
-    <section>
+
+    <section id="experience" data-aos="fade-up">
       <h2>Experience</h2>
-      <h3>Singapore Armed Forces – Electrical Technician (Oct 2023 – July 2024)</h3>
-      <ul>
-        <li>Executed scheduled Preventive Maintenance (PM) on complex military vehicles and electrical systems, ensuring maximum operational readiness and reliability.</li>
-        <li>Gained in-depth knowledge of diverse vehicle subsystems, including power distribution, sensors, and diagnostic tools.</li>
-        <li>Collaborated closely with senior technicians and engineers to troubleshoot, repair, and optimize vehicle performance under tight deadlines.</li>
-      </ul>
-      <h3>Oceania Robotics – Robotics Intern (Sept 2021 – Feb 2022)</h3>
-      <ul>
-        <li>Operated and monitored the “Dragonfly” robotic platform in real-world test environments to collect precise data samples for research and client projects.</li>
-        <li>Diagnosed and resolved minor mechanical and software issues, supporting seamless daily operations and reporting directly to the engineering team.</li>
-        <li>Documented testing procedures and created detailed reports summarizing results and recommendations for system improvements.</li>
-      </ul>
-      <h3>Singapore Science Centre – Assistant Event Manager (Nov 2018 – Dec 2018)</h3>
-      <ul>
-        <li>Facilitated interactive drone demonstrations during the “PS Invaders” event, engaging with visitors and promoting STEM learning.</li>
-        <li>Supervised safe operation of toy drones in a crowded public space, ensuring a positive and educational experience for all participants.</li>
-        <li>Assisted in planning event flow and coordinating logistics with team members to enhance visitor engagement and safety.</li>
-      </ul>
+      <div>
+        <h3>Singapore Armed Forces – Electrical Technician</h3>
+        <p>Oct 2023 – July 2024</p>
+        <ul>
+          <li>Performed preventive maintenance on complex military vehicles</li>
+          <li>Learned electrical subsystems and hands-on repair</li>
+        </ul>
+      </div>
     </section>
-    <section>
+
+    <section id="projects" data-aos="fade-up">
+      <h2>Featured Project</h2>
+      <h3>Systems Engineering Project 1</h3>
+      <p>Worked with a LIMO Robot using ROS (Robot Operating System) to navigate a custom-designed arena. Implemented systems thinking approaches for programming logic, obstacle handling, and integration with sensors.</p>
+    </section>
+
+    <section id="education" data-aos="fade-up">
       <h2>Education</h2>
-      <p><strong>Ngee Ann Polytechnic</strong> – Diploma in Aerospace Engineering (April 2019 – May 2022)</p>
+      <ul>
+        <li>Singapore Institute of Technology – Robotics Systems Engineering (Present)</li>
+        <li>Ngee Ann Polytechnic – Diploma in Aerospace Engineering (2019–2022)</li>
+      </ul>
     </section>
-    <section>
+
+    <section id="skills" data-aos="fade-up">
       <h2>Skills</h2>
       <ul>
-        <li>Robotics Design & Operation</li>
-        <li>Preventive Maintenance & Troubleshooting</li>
-        <li>Circuit Design</li>
-        <li>Computer Programming (C)</li>
-        <li>Problem Solving & Teamwork</li>
-        <li>Microsoft Office Suite</li>
-        <li>Communication & Technical Reporting</li>
-        <li>Aerospace Engineering Fundamentals</li>
+        <li>Robotics Design</li>
+        <li>ROS / LIMO Robot Programming</li>
+        <li>Circuit Design & Troubleshooting</li>
+        <li>Preventive Maintenance</li>
+        <li>Programming in C</li>
+        <li>Problem Solving</li>
       </ul>
     </section>
-    <section>
-      <h2>Languages</h2>
-      <p>English</p>
+
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:ramonito155@gmail.com">ramonito155@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/ramonito-jhon-pines-wong" target="_blank">linkedin.com/in/ramonito-jhon-pines-wong</a></p>
     </section>
   </main>
-</div>
-<footer>
-  &copy; 2025 Ramonito Wong | Digital Portfolio
-</footer>
+
+  <footer>
+    <p>&copy; 2025 Ramonito Wong</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
