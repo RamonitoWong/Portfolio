@@ -11,6 +11,8 @@
       --primary: #1a1a1a;
       --secondary: #66ccff;
       --accent: #e74c3c;
+      --card-bg: #252525;
+      --card-hover: #2a2a2a;
     }
     
     * {
@@ -47,18 +49,6 @@
       overflow: hidden;
     }
     
-    header.hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000') no-repeat center center/cover;
-      opacity: 0.1;
-      z-index: 0;
-    }
-    
     .hero-content {
       position: relative;
       z-index: 1;
@@ -87,20 +77,21 @@
       padding: 2.5rem 1.5rem;
     }
     
-    section {
-      margin-bottom: 3.5rem;
-      background: #1e1e1e;
-      border-radius: 12px;
-      padding: 2.2rem;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    /* ===== Shared Card Styles ===== */
+    .card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
-      border: 1px solid #2a2a2a;
+      border-left: 4px solid var(--secondary);
     }
     
-    section:hover {
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      border-color: #66ccff33;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      background: var(--card-hover);
     }
     
     /* ===== Typography Styles ===== */
@@ -142,23 +133,7 @@
       color: #f0f0f0;
     }
     
-    /* ===== Experience Section Styles ===== */
-    .experience-item {
-      background: #252525;
-      padding: 2rem;
-      border-radius: 10px;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      border-left: 4px solid var(--secondary);
-    }
-    
-    .experience-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      background: #2a2a2a;
-    }
-    
+    /* ===== Experience Section ===== */
     .experience-header {
       display: flex;
       justify-content: space-between;
@@ -181,7 +156,17 @@
       white-space: nowrap;
     }
     
-    /* ===== Skills Section - Dots System ===== */
+    /* ===== Projects Section ===== */
+    .project-item {
+      margin-bottom: 2rem;
+    }
+    
+    /* ===== Education Section ===== */
+    .education-item {
+      margin-bottom: 2rem;
+    }
+    
+    /* ===== Skills Section ===== */
     .skills-container.dots {
       display: flex;
       flex-direction: column;
@@ -214,16 +199,6 @@
       border-color: transparent;
       transform: scale(1.1);
       box-shadow: 0 0 12px rgba(102, 204, 255, 0.5);
-    }
-    
-    .skill-dot:hover {
-      transform: scale(1.3);
-    }
-    
-    .skill-item.dots span {
-      color: #e0e0e0;
-      font-weight: 500;
-      font-size: 1rem;
     }
     
     /* ===== List Styles ===== */
@@ -357,13 +332,15 @@
   <main>
     <section id="about" data-aos="fade-up" data-aos-delay="100">
       <h2>About Me</h2>
-      <p>I'm a Robotics Systems Engineering student at the Singapore Institute of Technology (SiT) with a background in aerospace systems from my diploma. I enjoy learning the intersection of hardware and software, specializing in robotics integration, systems thinking, and building innovative technologies that bridge the digital and physical worlds.</p>
-      <p>My approach combines technical expertise with creative problem-solving to develop solutions that are both functional and elegant. I'm particularly interested in autonomous systems, robotic perception, and the implementation of ROS in practical applications.</p>
+      <div class="card">
+        <p>I'm a Robotics Systems Engineering student at the Singapore Institute of Technology (SiT) with a background in aerospace systems from my diploma. I enjoy learning the intersection of hardware and software, specializing in robotics integration, systems thinking, and building innovative technologies that bridge the digital and physical worlds.</p>
+        <p>My approach combines technical expertise with creative problem-solving to develop solutions that are both functional and elegant. I'm particularly interested in autonomous systems, robotic perception, and the implementation of ROS in practical applications.</p>
+      </div>
     </section>
 
     <section id="experience" data-aos="fade-up" data-aos-delay="150">
       <h2>Experience</h2>
-      <div class="experience-item">
+      <div class="card">
         <h3>Singapore Armed Forces – Electrical Technician</h3>
         <p class="date">Oct 2023 – July 2024</p>
         <ul>
@@ -374,7 +351,7 @@
         </ul>
       </div>
 
-      <div class="experience-item">
+      <div class="card">
         <div class="experience-header">
           <h3>Oceania Robotics (Service Division)</h3>
           <span class="date">Sep 2021 - Feb 2022</span>
@@ -384,14 +361,9 @@
           <li>Deployed robotic equipment at various field sites to collect samples and data</li>
           <li>Assisted in field operations and contributed to research initiatives</li>
         </ul>
-        <div class="skills-tags">
-          <span class="skill-tag">Robotics Operation</span>
-          <span class="skill-tag">Field Deployment</span>
-          <span class="skill-tag">Electronics</span>
-        </div>
       </div>
 
-      <div class="experience-item">
+      <div class="card">
         <div class="experience-header">
           <h3>Science Centre Singapore</h3>
           <span class="date">Nov 2018 - Dec 2018</span>
@@ -401,17 +373,12 @@
           <li>Engaged with visitors to teach basic drone operation principles</li>
           <li>Assisted in event setup and management at Plaza Singapura mall</li>
         </ul>
-        <div class="skills-tags">
-          <span class="skill-tag">Drone Operation</span>
-          <span class="skill-tag">Public Engagement</span>
-          <span class="skill-tag">Event Management</span>
-        </div>
       </div>
     </section>
 
     <section id="projects" data-aos="fade-up" data-aos-delay="200">
       <h2>Projects</h2>
-      <div class="project-item">
+      <div class="card">
         <h3>Autonomous Navigation with LIMO Robot</h3>
         <p class="date">Systems Engineering Project 1, 2024</p>
         <ul>
@@ -425,7 +392,7 @@
 
     <section id="education" data-aos="fade-up" data-aos-delay="250">
       <h2>Education</h2>
-      <div class="education-item">
+      <div class="card">
         <h3>Singapore Institute of Technology</h3>
         <p class="date">2024 - Present</p>
         <p>Bachelor of Engineering in Robotics Systems Engineering (Honors)</p>
@@ -435,7 +402,7 @@
         </ul>
       </div>
       
-      <div class="education-item" style="margin-top: 1.5rem;">
+      <div class="card">
         <h3>Ngee Ann Polytechnic</h3>
         <p class="date">2019 - 2022</p>
         <p>Diploma in Aerospace Engineering (GPA: 3.8/4.0)</p>
@@ -448,64 +415,61 @@
 
     <section id="skills" data-aos="fade-up" data-aos-delay="300">
       <h2>Technical Skills</h2>
-      <div class="skills-container dots">
-        <!-- ROS -->
-        <div class="skill-item dots">
-          <span>Robot Operating System (ROS)</span>
-          <div class="skill-dots">
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot"></div> <!-- 4/5 = Advanced -->
+      <div class="card">
+        <div class="skills-container dots">
+          <div class="skill-item dots">
+            <span>Robot Operating System (ROS)</span>
+            <div class="skill-dots">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+            </div>
           </div>
-        </div>
-        
-        <!-- C/C++ -->
-        <div class="skill-item dots">
-          <span>C/C++ Programming</span>
-          <div class="skill-dots">
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot"></div> <!-- 4/5 = Advanced -->
+          
+          <div class="skill-item dots">
+            <span>C/C++ Programming</span>
+            <div class="skill-dots">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+            </div>
           </div>
-        </div>
-        
-        <!-- Electrical Systems -->
-        <div class="skill-item dots">
-          <span>Electrical Systems</span>
-          <div class="skill-dots">
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot"></div>
-            <div class="skill-dot"></div> <!-- 3/5 = Intermediate -->
+          
+          <div class="skill-item dots">
+            <span>Electrical Systems</span>
+            <div class="skill-dots">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
           </div>
-        </div>
-        
-        <!-- Python -->
-        <div class="skill-item dots">
-          <span>Python</span>
-          <div class="skill-dots">
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot"></div>
-            <div class="skill-dot"></div> <!-- 3/5 = Intermediate -->
+          
+          <div class="skill-item dots">
+            <span>Python</span>
+            <div class="skill-dots">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
           </div>
-        </div>
-        
-        <!-- CAD Design -->
-        <div class="skill-item dots">
-          <span>CAD Design</span>
-          <div class="skill-dots">
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot filled"></div>
-            <div class="skill-dot"></div>
-            <div class="skill-dot"></div>
-            <div class="skill-dot"></div> <!-- 2/5 = Beginner -->
+          
+          <div class="skill-item dots">
+            <span>CAD Design</span>
+            <div class="skill-dots">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -513,11 +477,13 @@
 
     <section id="contact" data-aos="fade-up" data-aos-delay="350">
       <h2>Get In Touch</h2>
-      <p>I'm currently looking for internship opportunities in robotics and autonomous systems. If you have a project that could use my skills or just want to connect, feel free to reach out!</p>
-      
-      <div style="margin-top: 2rem;">
-        <p><strong>Email:</strong> <a href="mailto:ramonito155@gmail.com" class="animate__animated animate__pulse animate__infinite animate__slower">ramonito155@gmail.com</a></p>
-        <p style="margin-top: 1rem;"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/ramonito-jhon-pines-wong" target="_blank">linkedin.com/in/ramonito-jhon-pines-wong</a></p>
+      <div class="card">
+        <p>I'm currently looking for internship opportunities in robotics and autonomous systems. If you have a project that could use my skills or just want to connect, feel free to reach out!</p>
+        
+        <div style="margin-top: 2rem;">
+          <p><strong>Email:</strong> <a href="mailto:ramonito155@gmail.com" class="animate__animated animate__pulse animate__infinite animate__slower">ramonito155@gmail.com</a></p>
+          <p style="margin-top: 1rem;"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/ramonito-jhon-pines-wong" target="_blank">linkedin.com/in/ramonito-jhon-pines-wong</a></p>
+        </div>
       </div>
     </section>
   </main>
