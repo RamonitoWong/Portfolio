@@ -372,9 +372,12 @@ section {
   color: #ddd;
 }
 /* Contact Section Styles */
+/* Contact Section Styles */
 .contact-links {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .contact-item {
@@ -385,7 +388,7 @@ section {
 
 .contact-icon {
   color: var(--secondary);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   width: 24px;
   text-align: center;
 }
@@ -397,6 +400,11 @@ section {
 
 .contact-item a:hover {
   color: var(--secondary);
+}
+
+/* Remove inline styles from contact items */
+.contact-item {
+  margin-top: 0 !important;
 }
 
 /* Responsive adjustments */
