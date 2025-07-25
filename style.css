@@ -325,3 +325,49 @@ section {
 .pulse {
   animation: pulse 2.5s infinite;
 }
+/* Update or add these rules */
+
+/* Consistent card styling */
+.card {
+  background: #252525;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border-left: 4px solid #66ccff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: #2a2a2a;
+}
+
+/* Adjust section styling to be less intrusive */
+section {
+  margin-bottom: 3.5rem;
+  background: transparent; /* Remove background */
+  border-radius: 0; /* Remove border radius */
+  padding: 0; /* Remove padding */
+  box-shadow: none; /* Remove shadow */
+  border: none; /* Remove border */
+}
+
+/* Better mobile handling for dates */
+@media (max-width: 768px) {
+  .experience-header {
+    flex-direction: row; /* Keep horizontal layout */
+    align-items: center; /* Better alignment */
+  }
+  
+  .date {
+    margin-top: 0;
+  }
+}
+
+/* Add this for education items */
+.education-item p {
+  margin: 0.5rem 0 1rem;
+  color: #ddd;
+}
