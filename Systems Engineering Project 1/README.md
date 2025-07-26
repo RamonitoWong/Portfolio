@@ -6,7 +6,8 @@ Program the LIMO robot to navigate autonomously through a custom arena inspired 
 - **DarkNet ROS** (YOLO object detection)  
 - **Python** (custom navigation scripts)  
 
-## 📂 **Project Folder**  
+## 📂 **Project Folder**
+```
 Systems Engineering Project 1/
 ├── src/
 │ ├── limo_navigation_diff.launch # Main ROS launch file
@@ -14,4 +15,4 @@ Systems Engineering Project 1/
 │ ├── slope_detector.py # Incline detection logic
 │ └── record_waypoints.py # Waypoint recording tool
 └── README.md # This file
-
+```
