@@ -1,5 +1,4 @@
-# Autonomous LIMO Robot Navigation  
-*Replicating the Rain Vortex at Jewel*  
+# Autonomous LIMO Robot Navigation and Arena Creation
 
 ## 🎯 **Project Goal**  
 Program the LIMO robot to navigate autonomously through a custom arena inspired by Jewel’s Rain Vortex, using:  
@@ -15,3 +14,4 @@ Systems Engineering Project 1/
 │ ├── slope_detector.py # Incline detection logic
 │ └── record_waypoints.py # Waypoint recording tool
 └── README.md # This file
+
