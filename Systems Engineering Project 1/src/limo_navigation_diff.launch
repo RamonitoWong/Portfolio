@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- 1) Fuse encoders + IMU → /odom → /base_link -->
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame"         value="odom"/>
+    <param name="base_footprint_frame" value="base_link"/>
+    <remap from="imu_data" to="imu"/>
+  </node>
+
+  <!-- 2) AMCL localization → /map → /odom -->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam file="$(find limo_bringup)/param/amcl_params_diff.yaml"
+              command="load"/>
+    <param name="initial_pose_x" value="0"/>
+    <param name="initial_pose_y" value="0"/>
+    <param name="initial_pose_a" value="0"/>
+  </node>
+
+  <!-- 3) Static map server → /map -->
+  <node pkg="map_server" type="map_server" name="map_server"
+        args="$(find limo_bringup)/maps/mymao.pgm" output="screen">
+    <param name="frame_id" value="map"/>
+  </node>
+
+  <!-- 4) Static TF: base_link → laser_link -->
+  <!--    Adjust x y z roll pitch yaw to your real sensor mount -->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="
+      0.20 0.00 0.15   0 0 0   base_link laser_link 100"/>
+
+  <!-- 5) Navigation: move_base -->
+  <node pkg="move_base" type="move_base" name="move_base"
+        respawn="false" output="screen">
+
+    <!-- costmap params -->
+    <rosparam file="$(find limo_bringup)/param/diff/costmap_common_params.yaml"
+              command="load" ns="global_costmap"/>
+    <rosparam file="$(find limo_bringup)/param/diff/costmap_common_params.yaml"
+              command="load" ns="local_costmap"/>
+    <rosparam file="$(find limo_bringup)/param/diff/local_costmap_params.yaml"
+              command="load"/>
+    <rosparam file="$(find limo_bringup)/param/diff/global_costmap_params.yaml"
+              command="load"/>
+
+    <!-- planner params -->
+    <rosparam file="$(find limo_bringup)/param/diff/planner.yaml"
+              command="load"/>
+
+    <param name="base_global_planner"       value="global_planner/GlobalPlanner"/>
+    <param name="planner_frequency"         value="1.0"/>
+    <param name="planner_patience"          value="5.0"/>
+    <param name="base_local_planner"        value="base_local_planner/TrajectoryPlannerROS"/>
+    <param name="controller_frequency"      value="5.0"/>
+    <param name="controller_patience"       value="15.0"/>
+    <param name="clearing_rotation_allowed" value="true"/>
+
+    <!-- intercept cmd_vel so our scaler can adjust it -->
+    <remap from="cmd_vel" to="cmd_vel_raw"/>
+
+  </node>
+
+  <!-- 6) Slope-Aware Twist Scaler -->
+  <node pkg="limo_perception" type="twist_slope_scaler_node.py"
+        name="twist_slope_scaler" output="screen">
+    <param name="input_twist"    value="/cmd_vel_raw"/>
+    <param name="output_twist"   value="/cmd_vel"/>
+    <param name="imu_topic"      value="/imu/data"/>
+    <param name="scale_function" value="cosine"/>
+  </node>
+
+  <!-- 7) RViz for nav_diff visualization -->
+  <node pkg="rviz" type="rviz" name="rviz" output="screen"
+        args="-d $(find limo_bringup)/rviz/navigation_diff.rviz"/>
+
+</launch>
+
+
